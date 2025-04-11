@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import javax.swing.text.DefaultCaret;
 
 import java.awt.*;
@@ -47,6 +48,8 @@ public final class Frame extends JFrame {
             public void paint(Graphics args) {
             }
         });
+
+        List.setBorder(new EmptyBorder(0, 2, 0, 2));
 
         Add(this, MenuBar, 0, 0, GridBagConstraints.HORIZONTAL, 1, 0);
         Add(MenuBar, Button1, 0, 0, GridBagConstraints.NONE, 0, 0);
