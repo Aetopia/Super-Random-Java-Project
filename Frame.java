@@ -10,7 +10,8 @@ public final class Frame extends JFrame {
 
     private final JMenuBar MenuBar = new JMenuBar();
     private final JTextField TextField = new JTextField();
-    private final JButton Button = new JButton("🔺");
+    private final JButton Button1 = new JButton("🔺");
+    private final JButton Button2 = new JButton("🔄");
     private final DefaultListModel<String> ListModel = new DefaultListModel<String>();
     private final JList<String> List = new JList<String>(ListModel);
 
@@ -48,13 +49,18 @@ public final class Frame extends JFrame {
         });
 
         Add(this, MenuBar, 0, 0, GridBagConstraints.HORIZONTAL, 1, 0);
-        Add(MenuBar, Button, 0, 0, GridBagConstraints.NONE, 0, 0);
+        Add(MenuBar, Button1, 0, 0, GridBagConstraints.NONE, 0, 0);
         Add(MenuBar, TextField, 1, 0, GridBagConstraints.BOTH, 1, 1);
+        Add(MenuBar, Button2, 2, 0, GridBagConstraints.NONE, 0, 0);
         Add(this, new JScrollPane(List), 0, 1, GridBagConstraints.BOTH, 1, 1);
 
-        Button.addActionListener(_ -> {
+        Button1.addActionListener(_ -> {
             if (Explorer.Set(".."))
                 Invoke();
+        });
+
+        Button2.addActionListener(_ -> {
+            Invoke();
         });
 
         List.addListSelectionListener($ -> {
